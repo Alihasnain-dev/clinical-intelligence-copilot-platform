@@ -1,0 +1,21 @@
+FROM python:3.10-slim
+
+WORKDIR /code
+
+# Copy requirements first for caching
+COPY ./src/api/requirements.txt /code/requirements.txt
+
+# Install dependencies
+# Note: We use --no-cache-dir to keep image small, and fix potential pywin32 issues on linux
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r /code/requirements.txt
+
+# Copy the source code
+COPY ./src /code/src
+
+# Expose port
+EXPOSE 8000
+
+# Command to run the application
+# We assume the context is the root of the repo, so path is src.api.main:app
+CMD ["uvicorn", "src.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
