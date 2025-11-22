@@ -30,6 +30,22 @@ The solution is built on a modern **Azure Cloud** stack, leveraging containerize
 
 ---
 
+## 📊 Datasets
+
+The intelligence layers of this platform were trained on high-quality, open-source medical datasets:
+
+### **1. Predictive Brain (No-Show Risk)**
+- **Dataset:** Medical Appointment No Shows (Kaggle)
+- **Description:** A dataset of 110,527 medical appointments associated with 14 variables (characteristics).
+- **Usage:** Used to train the LightGBM classifier to predict whether a patient will show up for their scheduled appointment based on factors like age, scholarship status, and hypertension.
+
+### **2. Visual Brain (Pathology Detection)**
+- **Dataset:** NIH Chest X-ray Dataset
+- **Description:** One of the largest publicly available chest X-ray datasets, provided by the NIH Clinical Center.
+- **Usage:** A curated subset of **50,000 images** was used to fine-tune the ResNet50 architecture. The model learns to classify 14 common thoracic pathologies (e.g., Pneumonia, Cardiomegaly, Effusion).
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
